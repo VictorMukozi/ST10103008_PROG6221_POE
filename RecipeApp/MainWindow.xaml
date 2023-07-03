@@ -1,0 +1,74 @@
+﻿<Window x:Class="RecipeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecipeApp"
+        mc:Ignorable="d"
+        Title="Recipe Book Application" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FFA6CC2B" Offset="1"/>
+                <GradientStop Color="#FF738E1D" Offset="0.697"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Add Recipe" Click="AddRecipeButton_Click" Grid.Row="3" Margin="5" Background="#FFE64211" FontFamily="Bahnschrift" FontSize="13"/>
+
+        <Button Content="Display Recipe" Click="DisplayRecipeButton_Click" Grid.Row="4" Margin="5" Background="#FFF0FD00" FontFamily="Bahnschrift" FontSize="13"/>
+
+        <Button Content="Display Sorted Recipes" Click="DisplaySortedRecipesButton_Click" Grid.Row="5" Margin="5" Background="#FF15A8E6" FontSize="13" FontFamily="Bahnschrift"/>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Left">
+            <TextBlock Text="Scale Factor:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="ScaleFactorTextBox" Width="50" Margin="5"/>
+            <Button Content="Scale Recipe" Click="ScaleRecipeButton_Click" Margin="5" Background="#FF79C523" FontFamily="Bahnschrift" FontSize="13"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button Content="Reset Quantities" Click="ResetQuantitiesButton_Click" Margin="5" Background="#FF96156E" FontFamily="Bahnschrift" FontSize="13"/>
+            <Button Content="Clear Data" Click="ClearDataButton_Click" Margin="5" Background="#FFF31414" FontFamily="Bahnschrift" FontSize="13"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="8" Orientation="Vertical" Margin="5">
+            <TextBlock Text="Filter Recipes:" FontWeight="Bold" Margin="0,0,0,5"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="By Ingredient:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="FilterByIngredientTextBox" Width="150"/>
+                <Button Content="Filter" Click="FilterByIngredientButton_Click" Margin="5,0,0,0" Background="#FFEF3315" FontFamily="Bahnschrift" FontSize="13"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <TextBlock Text="By Food Group:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="FilterByFoodGroupTextBox" Width="150"/>
+                <Button Content="Filter" Click="FilterByFoodGroupButton_Click" Margin="5,0,0,0" Background="#FFEF3315" FontFamily="Bahnschrift" FontSize="13"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="By Max Calories:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <TextBox x:Name="MaxCaloriesTextBox" Width="150"/>
+                <Button Content="Filter" Click="FilterByCaloriesButton_Click" Margin="5,0,0,0" Background="#FFEF3315" FontFamily="Bahnschrift" FontSize="13"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="9" Width="450" Background="#FF734141">
+            <ListBox x:Name="RecipeListBox" Grid.Row="8" Grid.Column="1" Margin="1" Height="200" Background="White" />
+        </StackPanel>
+
+    </Grid>
+</Window>
